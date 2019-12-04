@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration;
 
 import java.text.DateFormat;
+import java.util.List;
 
 public class BatchService {
 
@@ -56,6 +57,10 @@ public class BatchService {
         }
 
         return null;
+    }
+
+    public List<String> getSeasons(){
+        return batchDAO.getSeasons();
     }
 
 

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -22,6 +23,22 @@ public class BatchController {
         try {
             System.out.println("controller create");
             success = batchService.createBatch(name, season);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);
+        }
+
+
+        return new ResponseEntity(success, HttpStatus.OK);
+    }
+
+
+    @GetMapping(value = "/seasons")
+    public ResponseEntity seasons() {
+        List<String> success = null;
+        try {
+            System.out.println("controller seasons");
+            success = batchService.getSeasons();
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity(e.getMessage(), HttpStatus.CONFLICT);

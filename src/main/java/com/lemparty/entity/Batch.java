@@ -23,6 +23,7 @@ public class Batch{
     public String batchName; //ie Habanero/Finnochiona
     public String description;
     public String pathImage; //path to image
+    public String format; //Small vs Large
 
     // Weights
     public float weightSource; //source of purchased meat; grams
@@ -38,6 +39,14 @@ public class Batch{
         this._id = name+season;
         this.batchName = name;
         this.season = season;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 
     public String getDescription() {

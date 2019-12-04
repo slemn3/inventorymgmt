@@ -59,6 +59,15 @@ public class BatchDAO {
         return listBatches;
     }
 
+    public List<String> getSeasons(){
+        DistinctIterable<String> seasons = collection.distinct("season", String.class);
+        List<String> listSeasons = seasons.into(new ArrayList<String>());
+
+        System.out.println("Obtained Batch is not Null: "+String.valueOf(listSeasons != null));
+
+        return listSeasons;
+    }
+
     public List<Batch> getBatchByBatchName(String batchName){
         FindIterable<Batch> obtainedBatches = collection.find(eq("batchName", batchName));
         List<Batch> listBatches = obtainedBatches.into(new ArrayList<Batch>());
