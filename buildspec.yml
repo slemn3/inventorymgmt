@@ -16,4 +16,5 @@ artifacts:
   files:
     - target/inventorymgmt-1.0-SNAPSHOT.jar
     - appspec.yml
+    - rds-ca*.pem
   discard-paths: yes
