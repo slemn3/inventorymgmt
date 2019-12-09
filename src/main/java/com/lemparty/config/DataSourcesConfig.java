@@ -31,6 +31,7 @@ public class DataSourcesConfig {
     @Bean
     public BatchDAO getBatchDAO() {
         if(mongoPrivateKeyName != null && !mongoPrivateKeyName.equals("")) {
+            System.out.println("Using mongo Private Key: "+mongoPrivateKeyName);
             SSLContextHelper.setSslProperties(mongoPrivateKeyName);
         }
         return new BatchDAO(mongoURL);
